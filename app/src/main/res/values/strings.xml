@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">AndroidDev: From Zero to Hero</string>
+    <string name="app_name" translatable="false">AndroidDev: From Zero to Hero</string>
     <string name="app_secret">0J/QsNGA0L7Qu9GMINC00LvRjyDQstGF0L7QtNCwINC90LAg0LzQsNGB0YLQtdGAINC60LvQsNGB0YE6DQonSGFwcHkgRGV2INC90LDRh9C40L3QsNC10YLRgdGPINCyINGB0YPQsdCx0L7RgtGDJw==</string>
 
 </resources>
