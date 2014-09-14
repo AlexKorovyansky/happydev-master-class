@@ -3,7 +3,11 @@
  */
 package ru.happydev_lite.masterapp;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -24,12 +28,33 @@ public class Forecast {
         return new Forecast(date, dayTemp, nightTemp, "Random", null);
     }
 
+    public static List<Forecast> makeRandom(int daysNumber) {
+        Date today = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(today);
+        List<Forecast> result = new ArrayList<Forecast>();
+        for (int i = 0; i < daysNumber; ++i) {
+            if (i > 0) {
+                calendar.add(Calendar.DAY_OF_MONTH, 1);
+            }
+            Forecast forecast = makeRandom(calendar.getTime());
+            result.add(forecast);
+        }
+        return result;
+    }
+
     public Forecast(Date date, double dayTemp, double nightTemp, String description, String iconUrl) {
         this.date = date;
         this.dayTemp = dayTemp;
         this.nightTemp = nightTemp;
         this.description = description;
         this.iconUrl = iconUrl;
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM");
+        return capitalize(dateFormat.format(date));
     }
 
     public Date getDate() {
@@ -50,6 +75,10 @@ public class Forecast {
 
     public String getIconUrl() {
         return iconUrl;
+    }
+
+    private static String capitalize(String input) {
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
     }
 
 }
