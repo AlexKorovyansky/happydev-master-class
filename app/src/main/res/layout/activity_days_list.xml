@@ -1,0 +1,22 @@
+<ViewAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/day_list_animator"
+
+    tools:context="ru.happydev_lite.masterapp.DayListActivity">
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    
+    <ProgressBar
+        style="@android:style/Widget.Holo.ProgressBar.Large"
+        android:id="@+id/day_list_progress"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center"/>
+
+</ViewAnimator>
