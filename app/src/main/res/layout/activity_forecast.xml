@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="32dp"
+    android:orientation="vertical"
+    tools:context="ru.happydev_lite.masterapp.ForecastActivity">
+
+    <ImageView
+        android:id="@+id/forecast_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_launcher"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/forecast_temp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp"
+        android:text="7* C"
+        android:gravity="center"
+        android:textSize="96sp"/>
+
+    <TextView
+        android:id="@+id/forecast_description"
+        android:text="Небольшой дождь"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+
+</LinearLayout>
