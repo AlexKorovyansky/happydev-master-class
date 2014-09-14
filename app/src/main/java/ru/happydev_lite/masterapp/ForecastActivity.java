@@ -5,16 +5,17 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Date;
-
 
 public class ForecastActivity extends Activity {
+
+    public static final String FORECAST = "forecast";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forecast);
-        displayForecast(Forecast.makeRandom(new Date()));
+        Forecast forecast = (Forecast) getIntent().getSerializableExtra(FORECAST);
+        displayForecast(forecast);
     }
 
     private void displayForecast(Forecast forecast) {

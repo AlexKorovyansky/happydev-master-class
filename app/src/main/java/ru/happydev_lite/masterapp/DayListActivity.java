@@ -1,13 +1,16 @@
 package ru.happydev_lite.masterapp;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ViewAnimator;
 
 import java.util.List;
@@ -58,6 +61,9 @@ public class DayListActivity extends ListActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        if (getListAdapter() != null && getListAdapter().getCount() > 0) {
+            return;
+        }
         refresh();
     }
 
@@ -68,6 +74,15 @@ public class DayListActivity extends ListActivity {
             return true;
         }
         return false;
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Forecast forecast = (Forecast) getListAdapter().getItem(position);
+        Intent intent = new Intent(DayListActivity.this, ForecastActivity.class);
+        intent.putExtra(ForecastActivity.FORECAST, forecast);
+        startActivity(intent);
     }
 
     @Override

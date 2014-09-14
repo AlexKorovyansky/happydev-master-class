@@ -3,6 +3,7 @@
  */
 package ru.happydev_lite.masterapp;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,8 +14,9 @@ import java.util.Random;
 /**
  * Forecast
  */
-public class Forecast {
+public class Forecast implements Serializable {
 
+    private static final Random RANDOM = new Random(System.currentTimeMillis());
     private final Date date;
     private final double dayTemp;
     private final double nightTemp;
@@ -22,9 +24,8 @@ public class Forecast {
     private final String iconUrl;
 
     public static Forecast makeRandom(Date date) {
-        Random random = new Random(System.currentTimeMillis());
-        double dayTemp = random.nextDouble() * 10.0;
-        double nightTemp = random.nextDouble() * 5.0;
+        double dayTemp = RANDOM.nextDouble() * 10.0;
+        double nightTemp = RANDOM.nextDouble() * 5.0;
         return new Forecast(date, dayTemp, nightTemp, "Random", null);
     }
 
@@ -54,7 +55,7 @@ public class Forecast {
     @Override
     public String toString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM");
-        return capitalize(dateFormat.format(date));
+        return capitalize(dateFormat.format(date)) + String.format(" (%.1f *C)", dayTemp);
     }
 
     public Date getDate() {
