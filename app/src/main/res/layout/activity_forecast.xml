@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/forecast_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/ic_launcher"
         android:layout_marginBottom="16dp"/>
@@ -25,7 +25,7 @@
         android:layout_marginBottom="16dp"
         android:text="7* C"
         android:gravity="center"
-        android:textSize="96sp"/>
+        android:textSize="48sp"/>
 
     <TextView
         android:id="@+id/forecast_description"

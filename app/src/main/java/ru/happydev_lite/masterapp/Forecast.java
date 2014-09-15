@@ -58,6 +58,11 @@ public class Forecast implements Serializable {
         return capitalize(dateFormat.format(date)) + String.format(" (%.1f *C)", dayTemp);
     }
 
+    public String dateName() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM");
+        return capitalize(dateFormat.format(date));
+    }
+
     public Date getDate() {
         return date;
     }
