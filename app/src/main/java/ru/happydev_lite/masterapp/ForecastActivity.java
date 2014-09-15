@@ -19,16 +19,20 @@ public class ForecastActivity extends Activity {
         setContentView(R.layout.activity_forecast);
         Forecast forecast = (Forecast) getIntent().getSerializableExtra(FORECAST);
         displayForecast(forecast);
-        setTitle(forecast.dateName());
+        setTitle(forecast.getDate("EEEE, dd MMMM"));
     }
 
     private void displayForecast(Forecast forecast) {
         ImageView icon = (ImageView)findViewById(R.id.forecast_icon);
         Picasso.with(this).load(forecast.getIconUrl()).fit().into(icon);
         Log.i(null, forecast.getIconUrl());
-        TextView temp = (TextView)findViewById(R.id.forecast_temp);
+        TextView dayTemp = (TextView)findViewById(R.id.forecast_day_temp);
+        TextView nightTemp = (TextView)findViewById(R.id.forecast_night_temp);
         TextView description = (TextView)findViewById(R.id.forecast_description);
-        temp.setText(String.format("%.1f *C", forecast.getDayTemp()));
+        String format = getString(R.string.forecast_day_temp_template);
+        Log.i(null, format);
+        dayTemp.setText(String.format(getString(R.string.forecast_day_temp_template), forecast.getDayTemp()));
+        nightTemp.setText(String.format(getString(R.string.forecast_night_temp_template), forecast.getNightTemp()));
         description.setText(forecast.getDescription());
     }
 

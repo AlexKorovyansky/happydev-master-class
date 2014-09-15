@@ -10,16 +10,14 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".DayListActivity"
-            android:label="Weather in Omsk" >
+            android:name=".DaysListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="ru.happydev_lite.masterapp.ForecastActivity"
-            android:label="@string/title_activity_forecast" >
+            android:name="ru.happydev_lite.masterapp.ForecastActivity">
         </activity>
     </application>
 

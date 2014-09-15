@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * Forecast
  */
-public class Forecast implements Serializable {
+public final class Forecast implements Serializable {
 
     private static final Random RANDOM = new Random(System.currentTimeMillis());
     private final Date date;
@@ -53,14 +53,46 @@ public class Forecast implements Serializable {
     }
 
     @Override
-    public String toString() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM");
-        return capitalize(dateFormat.format(date)) + String.format(" (%.1f *C)", dayTemp);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || ((Object)this).getClass() != o.getClass()) return false;
+
+        Forecast forecast = (Forecast) o;
+
+        if (Double.compare(forecast.dayTemp, dayTemp) != 0) return false;
+        if (Double.compare(forecast.nightTemp, nightTemp) != 0) return false;
+        if (date != null ? !date.equals(forecast.date) : forecast.date != null) return false;
+        if (description != null ? !description.equals(forecast.description) : forecast.description != null)
+            return false;
+        if (iconUrl != null ? !iconUrl.equals(forecast.iconUrl) : forecast.iconUrl != null)
+            return false;
+
+        return true;
     }
 
-    public String dateName() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM");
-        return capitalize(dateFormat.format(date));
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = date != null ? date.hashCode() : 0;
+        temp = Double.doubleToLongBits(dayTemp);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(nightTemp);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (iconUrl != null ? iconUrl.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Forecast{" +
+                "date=" + date +
+                ", dayTemp=" + dayTemp +
+                ", nightTemp=" + nightTemp +
+                ", description='" + description + '\'' +
+                ", iconUrl='" + iconUrl + '\'' +
+                '}';
     }
 
     public Date getDate() {
@@ -76,15 +108,21 @@ public class Forecast implements Serializable {
     }
 
     public String getDescription() {
-        return description;
+        return Utils.capitalize(description);
     }
 
     public String getIconUrl() {
         return iconUrl;
     }
 
-    private static String capitalize(String input) {
-        return input.substring(0, 1).toUpperCase() + input.substring(1);
+    public String getDayName() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE");
+        return Utils.capitalize(dateFormat.format(date));
+    }
+
+    public String getDate(String format) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format); //"EEEE, dd MMM");
+        return Utils.capitalize(dateFormat.format(date));
     }
 
 }

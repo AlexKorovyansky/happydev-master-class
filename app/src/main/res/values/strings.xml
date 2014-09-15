@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">AndroidDev: From Zero to Hero</string>
-    <string name="app_secret">0J/QsNGA0L7Qu9GMINC00LvRjyDQstGF0L7QtNCwINC90LAg0LzQsNGB0YLQtdGAINC60LvQsNGB0YE6DQonSGFwcHkgRGV2INC90LDRh9C40L3QsNC10YLRgdGPINCyINGB0YPQsdCx0L7RgtGDJw==</string>
-    <string name="title_activity_forecast">ForecastActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Omsk</string>
+    <string name="title_day_list_activity">Weather in Omsk</string>
+    <string name="days_list_unexpected_error">Unexpected error.\nPlease check your Internet Connection\nand try to Refresh.</string>
+    <string name="forecast_day_temp_template">Day %.1f°</string>
+    <string name="forecast_night_temp_template">Night %.1f°</string>
+    <string name="action_refresh">Refresh</string>
 
 </resources>

@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/day_list_animator"
-
-    tools:context="ru.happydev_lite.masterapp.DayListActivity">
+    tools:context="ru.happydev_lite.masterapp.DaysListActivity">
 
     <ListView
         android:id="@android:id/list"
@@ -14,9 +13,19 @@
     
     <ProgressBar
         style="@android:style/Widget.Holo.ProgressBar.Large"
-        android:id="@+id/day_list_progress"
+        android:id="@+id/days_list_progress"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_gravity="center"/>
+
+    <TextView
+        style="@android:style/TextAppearance.Small"
+        android:id="@+id/day_list_error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:text="@string/days_list_unexpected_error"
+        android:layout_gravity="center"
+        android:gravity="center"/>
 
 </ViewAnimator>

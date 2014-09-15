@@ -1,27 +1,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="32dp"
-    android:paddingBottom="32dp"
-    android:orientation="vertical"
-    tools:context="ru.happydev_lite.masterapp.ForecastActivity">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:orientation="horizontal"
+              tools:context="ru.happydev_lite.masterapp.ForecastActivity">
 
     <ImageView
         android:id="@+id/forecast_icon"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center_vertical"
         android:layout_marginBottom="16dp"
         tools:src="@drawable/ic_launcher"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:layout_marginBottom="16dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -30,9 +29,10 @@
             android:fontFamily="sans-serif-light"
             android:id="@+id/forecast_day_temp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginBottom="2dp"
-            android:gravity="center"
+            android:gravity="bottom"
             android:textSize="48sp"
             android:textColor="?android:attr/textColorPrimary"
             tools:text="Day - 7°"/>
@@ -48,15 +48,17 @@
             android:textColor="#777777"
             tools:text="Night - 1°"/>
 
+        <TextView
+            style="@android:style/TextAppearance.Large"
+            android:fontFamily="sans-serif-light"
+            android:id="@+id/forecast_description"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            tools:text="Light rain"/>
+
     </LinearLayout>
 
-    <TextView
-        style="@android:style/TextAppearance.Large"
-        android:fontFamily="sans-serif-light"
-        android:id="@+id/forecast_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        tools:text="Light rain"/>
 
 </LinearLayout>

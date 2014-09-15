@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    tools:context="ru.happydev_lite.masterapp.DaysListActivity">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@android:style/TextAppearance.Large"
+            android:fontFamily="sans-serif-light"
+            android:id="@+id/days_list_item_day_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Monday"
+            />
+
+        <TextView
+            style="@android:style/TextAppearance.Small"
+            android:fontFamily="sans-serif-light"
+            android:id="@+id/days_list_item_day_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/days_list_item_day_name"
+            android:layout_marginRight="8dp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary"
+            tools:text="17* C"
+            />
+
+        <TextView
+            style="@android:style/TextAppearance.Small"
+            android:fontFamily="sans-serif-light"
+            android:id="@+id/days_list_item_night_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/days_list_item_day_name"
+            android:textColor="?android:attr/textColorSecondary"
+            android:layout_toRightOf="@id/days_list_item_day_temp"
+            tools:text="7* C"
+            />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/days_list_item_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentRight="true"
+        tools:background="#ffff00"/>
+
+</LinearLayout>
